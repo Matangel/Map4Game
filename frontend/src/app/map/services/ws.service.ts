@@ -13,7 +13,7 @@ export class WsService {
 
   start(): Subject<Marker[]> {
     const wsc: WebSocketSubject<any> = webSocket<any>({
-      url: 'ws://localhost:3000',
+      url: `ws://${window.location.hostname}:3000`,
       protocol: 'ws',
     });
     const markers = new Subject<Marker[]>();

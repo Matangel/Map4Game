@@ -11,7 +11,7 @@ export class MapService {
 
   saveMarker(marker: any) {
     this._httpClient
-      .post('http://localhost:5000/saveMarker', marker, {
+      .post(`http://${window.location.hostname}:5000/saveMarker`, marker, {
         headers: new HttpHeaders({ 'Access-Control-Allow-Origin':'*' }),
       })
       .subscribe((res) => {
@@ -21,7 +21,7 @@ export class MapService {
 
   updateMarker(marker: any) {
     this._httpClient
-      .post('http://localhost:5000/updateMarker', marker, {
+      .post(`http://${window.location.hostname}:5000/updateMarker`, marker, {
         headers: new HttpHeaders({ 'Access-Control-Allow-Origin':'*' }),
       })
       .subscribe((res) => {
@@ -31,7 +31,7 @@ export class MapService {
 
   deleteMarker(marker: any) {
     this._httpClient
-      .post('http://localhost:5000/deleteMarker', marker, {
+      .post(`http://${window.location.hostname}:5000/deleteMarker`, marker, {
         headers: new HttpHeaders({ 'Access-Control-Allow-Origin':'*' }),
       })
       .subscribe((res) => {

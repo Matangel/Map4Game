@@ -67,7 +67,7 @@ export class MapPage implements OnInit {
       zoom: 13,
     });
 
-    L.tileLayer('http://localhost:5000/tiles/{z}/{x}/{y}.jpg', {
+    L.tileLayer(`http://${window.location.hostname}:5000/tiles/{z}/{x}/{y}.jpg`, {
       attribution: '♥ Shiryu ♥',
       maxZoom: 15,
       minZoom: 10,
