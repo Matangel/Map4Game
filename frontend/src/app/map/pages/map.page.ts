@@ -89,17 +89,42 @@ export class MapPage implements OnInit {
     });
 
     this.map.on('contextmenu', (e) => {});
-    L.polyline(
-      [
-        [1.0546279422758869, -1.0546875000000002],
-        [0.39550467153201946, -0.39550467153201946],
-      ],
-      { color: '#ff0000' }
-    ).addTo(this.grid);
 
     //decouper un interval en n parties egales
     // longeur de l'intervalle = (sup - inf)/n
+    const side = (1.0546279422758869 - 0.39550467153201946) / 15;
+    const xStart = -1.0546875000000002;
+    const xFinal = -0.39550467153201946; //TOFIX when new tiles
+    const yStart = 1.0546875000000002;
+    const yFinal = 0.39550467153201946; //TOFIX when new tiles
 
+    for (let i = 1; i < 16; i++) {
+      L.polyline(
+        [
+          [yStart + i * -side, xStart],
+          [yStart + i * -side, xFinal],
+        ],
+        { color: 'grey', weight: 1, opacity: 0.5 }
+      ).addTo(this.grid);
+      L.polyline(
+        [
+          [yStart, xStart + i * side],
+          [yFinal, xStart + i * side],
+        ],
+        { color: 'lightgrey', weight: 1, opacity: 0.5 }
+      ).addTo(this.grid);
+      console.log(i, yStart + i * side, xStart + i * side);
+    }
+    for (let i = 1; i < 16; i++){
+      for(let j = 1; j < 16; j++){
+        L.rectangle([
+          [yStart + i * -side, xStart + j * side],
+          [yStart + (i-1) * -side, xStart + (j-1) * side],
+        ], {color: 'lightgrey', fillOpacity: 0})
+        .addTo(this.grid)
+        .bindTooltip(`${this.intToChar(i-1)}${j}`, {permanent: true, direction: 'center', className: 'text'});
+      }
+    }
     this.grid.addTo(this.map);
 
     this.layers.addTo(this.map);
