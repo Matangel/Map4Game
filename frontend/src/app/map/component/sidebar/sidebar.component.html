@@ -1,0 +1,173 @@
+<div class="wrapper">
+  <span class="sidebar-component">
+    <span class="p-float-label">
+      <input pInputText id="title" [(ngModel)]="currentMarker.title" />
+      <label for="title">Title</label>
+    </span>
+  </span>
+  <span class="sidebar-component">
+    <span class="p-float-label">
+      <textarea id="float-input" rows="5" cols="23" [(ngModel)]="currentMarker.description" pInputTextarea></textarea>
+      <label for="float-input">Description</label>
+    </span>
+  </span>
+  <span class="row sidebar-component">
+    <label> Color </label>
+    <p-colorPicker [(ngModel)]="currentMarker.color"></p-colorPicker>
+    <input pInputText id="color" style="width: 6rem;" [(ngModel)]="currentMarker.color" />
+  </span>
+  <div class="wrapper" style="gap:1rem">
+  <span class="row sidebar-component" >
+    <p-button
+      type="button"
+      label=" "
+      size="small"
+      [style]="{'background-color': 'darkred'}"
+      (click)="currentMarker.color = '#8B0000'"
+    ></p-button>
+    <p-button
+      type="button"
+      label=" "
+      size="small"
+      [style]="{'background-color': 'red'}"
+      (click)="currentMarker.color = '#FF0000'"
+    ></p-button>
+    <p-button
+      type="button"
+      label=" "
+      size="small"
+      [style]="{'background-color': 'orange'}"
+      (click)="currentMarker.color = '#FFA500'"
+    ></p-button>
+    <p-button
+      type="button"
+      label=" "
+      size="small"
+      [style]="{'background-color': 'yellow'}"
+      (click)="currentMarker.color = '#FFFF00'"
+    ></p-button>
+    <p-button
+      type="button"
+      label=" "
+      size="small"
+      [style]="{'background-color': 'darkolivegreen'}"
+      (click)="currentMarker.color = '#556B2F'"
+    ></p-button>
+  </span>
+  <span class="row sidebar-component" >
+    <p-button
+      type="button"
+      label=" "
+      size="small"
+      [style]="{'background-color': 'purple'}"
+      (click)="currentMarker.color = '#800080'"
+    ></p-button>
+    <p-button
+      type="button"
+      label=" "
+      size="small"
+      [style]="{'background-color': 'magenta'}"
+      (click)="currentMarker.color = '#FF00FF'"
+    ></p-button>
+    <p-button
+      type="button"
+      label=" "
+      size="small"
+      [style]="{'background-color': 'green'}"
+      (click)="currentMarker.color = '#008000'"
+    ></p-button>
+    <p-button
+      type="button"
+      label=" "
+      size="small"
+      [style]="{'background-color': 'teal'}"
+      (click)="currentMarker.color = '#008080'"
+    ></p-button>
+    <p-button
+      type="button"
+      label=" "
+      size="small"
+      [style]="{'background-color': 'lime'}"
+      (click)="currentMarker.color = '#00FF00'"
+    ></p-button>
+  </span>
+  <span class="row sidebar-component" >
+    <p-button
+      type="button"
+      label=" "
+      size="small"
+      [style]="{'background-color': 'cyan'}"
+      (click)="currentMarker.color = '#00FFFF'"
+    ></p-button>
+    <p-button
+      type="button"
+      label=" "
+      size="small"
+      [style]="{'background-color': 'blue'}"
+      (click)="currentMarker.color = '#0000FF'"
+    ></p-button>
+    <p-button
+      type="button"
+      label=" "
+      size="small"
+      [style]="{'background-color': 'darkblue'}"
+      (click)="currentMarker.color = '#00008B'"
+    ></p-button>
+    <p-button
+      type="button"
+      label=" "
+      size="small"
+      [style]="{'background-color': 'grey'}"
+      (click)="currentMarker.color = '#808080'"
+    ></p-button>
+    <p-button
+      type="button"
+      label=" "
+      size="small"
+      [style]="{'background-color': 'black'}"
+      (click)="currentMarker.color = '#000000'"
+    ></p-button>
+  </span>
+</div>
+  <span class="row sidebar-component" *ngIf="!isEdit">
+    <button
+      pButton
+      type="button"
+      label="Save"
+      class="p-button-success"
+      (click)="save()"
+    ></button>
+    <button
+      pButton
+      type="button"
+      label="Cancel"
+      class="p-button-danger"
+      (click)="cancel()"
+    ></button>
+  </span>
+  <span class="row sidebar-component" *ngIf="isEdit">
+    <button
+      pButton
+      type="button"
+      label="Update"
+      class="p-button-success"
+      (click)="update()"
+    ></button>
+    <button
+      pButton
+      type="button"
+      label="Cancel"
+      class="p-button-danger"
+      (click)="cancel()"
+    ></button>
+  </span>
+<span class="row sidebar-component" *ngIf="isEdit">
+    <p-button
+      [text]="true"
+      type="button"
+      label="Delete"
+      [severity]="'danger'"
+      (click)="delete()"
+    ></p-button>
+  </span>
+</div>

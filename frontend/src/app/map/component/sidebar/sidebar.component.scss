@@ -1,0 +1,21 @@
+.sidebar-component {
+  width: 20rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.row{
+  gap: 1rem;
+}
+
+textarea {
+  resize: none;
+}

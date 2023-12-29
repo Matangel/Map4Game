@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+$topbar_height: 5rem;
+
+body{
+  margin: 0;
+}
+
+.topbar{
+  height: $topbar_height;
+}
+.leaflet-div-icon {
+  background: transparent !important;
+  border: none !important;
+}
+
+.text{
+  background-color: transparent !important;
+  border: none !important;
+  color: lightgrey !important;
+  box-shadow: 0 0 0 transparent !important;
+
+}
+.text.leaflet-popup-tip-container {
+  display: none;
+}
